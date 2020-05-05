@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Registrarse</title>
+    </h:head>
+    <style type="text/css">
+        .formulario{
+            text-align: left;
+        }
+        .panelGrid tr{
+            border-color: white;
+            border-collapse:collapse;
+        }
+
+    </style>
+    <h:body>
+        <p:panel styleClass="formulario" header="Diligencie el formulario" style="margin-bottom:20px">
+            <h:form>
+                <p:panelGrid columns="2" styleClass="panelGrid">
+
+                    <p:outputLabel  value = "Cedula: "/>
+                    <p:inputText  value = "#{Registro.cedula}"/>   
+                    <p:outputLabel  value = "Nombre: " />
+                    <p:inputText value = "#{Registro.nombre}"/>   
+                    <p:outputLabel  value = "Apellido: " />
+                    <p:inputText value = "#{Registro.apellido}"/>   
+                    <p:outputLabel  value = "Fecha Nacimiento: " />
+                    <p:inputText value = "#{Registro.fechaNacimiento}"/>   
+                    <p:outputLabel  value = "Nivel Educativo: " />
+
+                    <p:selectOneMenu value = "#{Registro.nivelEstudio}" >
+                        <f:selectItem itemValue="seleccione" itemLabel= "Seleccione" />
+                        <f:selectItem itemValue="primaria" itemLabel= "Primaria" />
+                        <f:selectItem itemValue="secundaria" itemLabel= "Secundaria" />
+                        <f:selectItem itemValue="tecnico" itemLabel= "Tecnico" />
+                        <f:selectItem itemValue="tecnologo" itemLabel= "Tecnologo" />
+                        <f:selectItem itemValue="profesional" itemLabel= "Profesional" />
+                        <f:selectItem itemValue="magister" itemLabel= "Magister" />
+                    </p:selectOneMenu>
+                    <p:outputLabel  value = "Idiomas: " />
+                    <p:selectManyCheckbox  value ="#{Registro.idioma}" >
+                        <f:selectItem itemValue="español" itemLabel= "Español" />
+                        <f:selectItem itemValue="ingles" itemLabel= "Ingles" />
+                        <f:selectItem itemValue="frances" itemLabel= "Frances" />
+                        <f:selectItem itemValue="aleman" itemLabel= "Aleman" />
+                    </p:selectManyCheckbox>
+
+                    <p:outputLabel  value = "Dias Laborados " />
+                    <p:inputText value = "#{Registro.diasLaborados}"   />
+                    <br></br><br></br>
+                    <p:commandButton value = "Enviar" action= "#{Registro.enviarDatos()}"  /> 
+                </p:panelGrid>
+
+            </h:form>
+        </p:panel>
+
+    </h:body>
+</html>
+
